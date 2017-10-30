@@ -1,0 +1,65 @@
+# A specific item with in a list
+interface Item {
+    # The id of the item
+    id: ID!
+    # The source of the item
+    source: Int!
+}
+
+# An interaction with an organization
+interface Interaction {
+    # The id of the interaction
+    id: ID!
+    # The source of the interaction
+    source: Int!
+}
+
+# Name
+type Name implements Item {
+    id: ID!
+    source: Int!
+    FullName: String
+    NameTitle: String
+    FirstName: String
+    MiddleName: String
+    LastName: String
+    NameSuffix: String
+}
+
+# Email Address
+type EmailAddress implements Item {
+    id: ID!
+    source: Int!
+    EmailAddress: Email!
+    EmailContact: Contact
+    EmailUsable: Usable
+}
+
+# Physical Address
+type PhysicalAddress implements Item {
+    id: ID!
+    source: Int!
+    Address1 : String
+    Address2 : String
+    Address3 : String
+    AddressCity : City
+    AddressState : Region
+    AddressZip : PostalCode
+    AddressCounty : County
+    AddressCountry : Country
+    AddressLatitude : LatLng
+    AddressLongitude : LatLng
+    AddressLocation : Location
+    AddressUsable : Usable
+}
+
+type OutsideContribution implements Item, Interaction {
+    id: ID!
+    source: Int!
+    OutsideContributionWhen : Datetime!
+    OutsideContributionOrganization : Organization
+    OutsideContributionPoliticalParty : PoliticalParty
+    OutsideContributionTopics: [Topic]
+    OutsideContributionAmount : Float
+    OutsideContributionSourceCode : String
+}

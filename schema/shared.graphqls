@@ -1,0 +1,71 @@
+scalar Datetime # Valid date time string
+scalar Url # Valid url
+scalar PostalCode # Valid postal code
+scalar Email # Valid email address
+scalar LatLng # Valid latitude or longitude
+
+# id value array
+interface idValue {
+    id: ID!
+    value: String!
+}
+
+# An organization
+type Organization implements idValue {
+    id: ID!
+    value: String!
+}
+
+# A political party
+type PoliticalParty implements idValue {
+    id: ID!
+    value: String!
+}
+
+# A topic
+type Topic implements idValue {
+    id: ID!
+    value: String!
+}
+
+# Specifies the type of contact for this item
+type Contact implements idValue {
+    id: ID!
+    value: String!
+}
+
+# Specifies whether this item is usable
+type Usable implements idValue {
+    id: ID!
+    value: String!
+}
+
+# Specifies the location for this item
+type Location implements idValue {
+    id: ID!
+    value: String!
+}
+
+# Valid city
+type City implements idValue {
+    id: ID!
+    value: String!
+}
+
+# Valid county
+type County implements idValue {
+    id: ID!
+    value: String!
+}
+
+# Valid region (i.e. state, province, etc.)
+type Region implements idValue {
+    id: ID!
+    value: String!
+}
+
+# Valid country
+type Country implements idValue {
+    id: ID!
+    value: String!
+}
