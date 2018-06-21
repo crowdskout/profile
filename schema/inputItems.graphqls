@@ -14,7 +14,7 @@ input iName {
 input iEmailAddress {
     id: ID!
     source: Int!
-    EmailAddress: Email!
+    EmailAddress: csEmail!
     EmailContact: iContact
     EmailUsable: iUsable
 }

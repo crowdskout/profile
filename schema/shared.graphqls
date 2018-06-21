@@ -1,7 +1,7 @@
 scalar Datetime # Valid date time string
 scalar Url # Valid url
 scalar PostalCode # Valid postal code
-scalar Email # Valid email address
+scalar csEmail # Valid email address
 scalar LatLng # Valid latitude or longitude
 
 # id value array

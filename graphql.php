@@ -14,8 +14,10 @@ use GraphQL\Utils\BuildSchema;
 require "vendor/autoload.php";
 
 $scalars = require('php/scalars.php');
-
-$typeConfigDecorator = function($typeConfig, $typeDefinitionNode) {
+$typeConfigDecorator = function($typeConfig, $typeDefinitionNode) use ($scalars, &$names) {
+    if (isset($scalars[$typeConfig['name']])) {
+        return $scalars[$typeConfig['name']]->config;
+    }
     /** @var \GraphQL\Language\AST\ObjectTypeDefinitionNode $typeDefinitionNode */
     return $typeConfig;
 };
@@ -35,6 +37,7 @@ try {
     $output = $result->toArray();
 } catch (\Exception $e) {
     $output = [
+        'type' => get_class($e),
         'errors' => [
             [
                 'message' => $e->getMessage()

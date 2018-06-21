@@ -30,7 +30,7 @@ type Name implements Item {
 type EmailAddress implements Item {
     id: ID!
     source: Int!
-    EmailAddress: Email!
+    EmailAddress: csEmail!
     EmailContact: Contact
     EmailUsable: Usable
 }

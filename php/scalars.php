@@ -4,8 +4,8 @@ use GraphQL\Type\Definition\CustomScalarType;
 $scalars = [];
 
 $emailRegex = '"^[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"';
-$scalars[] = new CustomScalarType([
-    'name' => 'Email',
+$scalars['csEmail'] = new CustomScalarType([
+    'name' => 'csEmail',
     'serialize' => function($value) {
         return $value;
     },
@@ -22,7 +22,7 @@ $scalars[] = new CustomScalarType([
             throw new Error('Query error: Can only parse strings got: ' . $valueNode->kind, [$valueNode]);
         }
         if (preg_match($emailRegex, $valueNode->value) !== 1) {
-            throw new Error("Not a valid email", [$valueNode]);
+            return null;
         }
         return $valueNode->value;
     },
