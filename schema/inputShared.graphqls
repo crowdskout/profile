@@ -1,0 +1,59 @@
+# An organization
+input iOrganization {
+    id: ID!
+    value: String!
+}
+
+# A political party
+input iPoliticalParty {
+    id: ID!
+    value: String!
+}
+
+# A topic
+input iTopic {
+    id: ID!
+    value: String!
+}
+
+# Specifies the type of contact for this item
+input iContact {
+    id: ID!
+    value: String!
+}
+
+# Specifies whether this item is usable
+input iUsable {
+    id: ID!
+    value: String!
+}
+
+# Specifies the location for this item
+input iLocation {
+    id: ID!
+    value: String!
+}
+
+# Valid city
+input iCity {
+    id: ID!
+    value: String!
+}
+
+# Valid county
+input iCounty {
+    id: ID!
+    value: String!
+}
+
+# Valid region (i.e. state, province, etc.)
+input iRegion {
+    id: ID!
+    value: String!
+}
+
+# Valid country
+input iCountry {
+    id: ID!
+    value: String!
+}

@@ -8,10 +8,24 @@ type Profile {
   OutsideContributions: [OutsideContribution]
 }
 
+input CreateProfile {
+    # id of the profile
+    id: ID!
+    Names: [iName]
+    EmailAddresses: [iEmailAddress]
+    PhysicalAddresses: [iPhysicalAddress]
+    OutsideContributions: [iOutsideContribution]
+}
+
+type MutateProfiles {
+    profiles(params: CreateProfile): Boolean
+}
+
 type ProfileQuery {
   Profile(id: ID!): Profile
 }
 
 schema {
   query: ProfileQuery
+  mutation: MutateProfiles
 }
